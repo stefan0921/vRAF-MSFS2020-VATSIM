@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vRAF | Virtual Royal Air Force</title>
+    <style>
+        :root {
+            --raf-blue: #002451;
+            --raf-light-blue: #aad8f1;
+            --raf-red: #d11919;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --dark-blue: #001836;
+            --discord: #5865F2;
+            --open-green: #15803d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: var(--gray);
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: var(--raf-blue);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--raf-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; text-decoration: none; color: white; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav li { margin-left: 20px; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; padding: 5px 10px; transition: 0.3s; }
+        nav a:hover { color: var(--raf-light-blue); }
+
+        /* --- HERO --- */
+        .hero {
+            background: linear-gradient(rgba(0,36,81,0.8), rgba(0,36,81,0.8)), 
+                        url('https://images.unsplash.com/photo-1517976384346-3136801d605d?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: var(--white); text-align: center; padding: 0 20px;
+        }
+
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 10px; text-transform: uppercase; }
+        .btn { background: var(--raf-red); color: white; padding: 14px 32px; text-decoration: none; border-radius: 6px; font-weight: bold; transition: 0.3s; display: inline-block; border: none; cursor: pointer; }
+        .btn:hover { background: #b01414; transform: translateY(-2px); }
+
+        /* --- ABOUT SECTION --- */
+        .about-section { background: white; padding: 80px 10%; }
+        .about-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center; }
+        .about-text h2 { color: var(--raf-blue); font-size: 2rem; margin-top: 0; }
+        .vatsim-milestone { 
+            background: var(--gray); 
+            padding: 30px; 
+            border-left: 5px solid var(--raf-red); 
+            border-radius: 0 10px 10px 0;
+        }
+        .milestone-tag { color: var(--raf-red); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; }
+
+        /* --- SQUADRONS --- */
+        .section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
+        .section-title { text-align: center; color: var(--raf-blue); font-size: 2.2rem; margin-bottom: 50px; text-transform: uppercase; }
+
+        .sqn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .sqn-card {
+            background: white; border-radius: 12px; padding: 40px 25px; text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #ddd;
+            display: flex; flex-direction: column; align-items: center; transition: 0.3s;
+            height: 100%; box-sizing: border-box;
+        }
+        .sqn-card:hover { transform: translateY(-8px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .badge { background: #dcfce7; color: var(--open-green); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; margin-bottom: 15px; border: 1px solid var(--open-green); }
+        .sqn-emblem { width: 140px; height: 140px; margin-bottom: 20px; object-fit: contain; }
+        .sqn-name { font-size: 1.5rem; color: var(--raf-blue); margin: 5px 0; font-weight: 800; }
+        .sqn-role { color: var(--raf-red); font-weight: bold; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 15px; }
+        .sqn-desc { font-size: 0.95rem; color: #444; }
+
+        /* --- FLEET --- */
+        .fleet-container { background: var(--dark-blue); color: white; padding: 60px 5%; border-radius: 15px; margin-top: 40px; }
+        .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .fleet-item { position: relative; border-radius: 8px; overflow: hidden; height: 280px; background: #000; cursor: help; }
+        .fleet-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.4s; }
+        .fleet-overlay { position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
+        .fleet-item:hover img { opacity: 0.3; transform: scale(1.05); }
+        .specs-list { display: none; font-size: 0.85rem; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.3); margin-top: 10px; list-style: none; padding-left: 0; }
+        .fleet-item:hover .specs-list { display: block; }
+        .specs-list li { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .specs-label { color: var(--raf-light-blue); font-weight: bold; }
+
+        footer { background: var(--raf-blue); color: white; text-align: center; padding: 60px 20px; border-top: 4px solid var(--raf-red); }
+        .discord-btn { background: var(--discord); color: white; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .discord-btn:hover { background: #4752c4; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">vRAF</a>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#squadrons">Squadrons</a></li>
+                <li><a href="#fleet">Fleet</a></li>
+                <li><a href="https://discord.gg/DT44EPXSeN" target="_blank">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>PER ARDUA AD ASTRA</h1>
+        <p>Excellence in the Skies, Camaraderie on the Ground.</p>
+        <a href="https://discord.gg/DT44EPXSeN" class="btn" target="_blank">Enlist Today</a>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Welcome to vRAF</h2>
+                <p>Welcome to vRAF, a community built for aviation enthusiasts who love connecting, flying, and sharing their passion for virtual skies. Our mission is to create a fun, friendly, and safe environment for pilots of all skill levels.</p>
+                <p>Whether you’re here to improve your skills, make new friends, or just enjoy flying for fun, vRAF has a place for you. Join us today and be part of our skies as we take off to the next level!</p>
+            </div>
+            <div class="vatsim-milestone">
+                <span class="milestone-tag">Roadmap Milestone</span>
+                <h3>The Path to VATSIM</h3>
+                <p>vRAF is growing steadily, and we have exciting plans ahead! Once we reach <strong>50+ members</strong>, we’re transitioning to <strong>VATSIM</strong>, opening the doors to a more realistic online flying experience, advanced air traffic control, and global connectivity.</p>
+                <p>This milestone marks a big step for our community, and we’re thrilled to bring our members along for the journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="squadrons">
+        <h2 class="section-title">Operational Units</h2>
+        <div class="sqn-grid">
+            
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/kgJ1TQWJ/download-(1).png" alt="4 SQN" class="sqn-emblem">
+                <h3 class="sqn-name">IV(AC) SQN</h3>
+                <p class="sqn-role">Fast Jet Training</p>
+                <p class="sqn-desc">Tactical weapons training and advanced lead-in fighter skills on the Hawk T2.</p>
+            </div>
+
+            <div class="sqn-card" onclick="window.open('https://forms.gle/ePhb4EyatmpyHjgX7', '_blank')" style="cursor: pointer; border: 1px solid var(--raf-light-blue);">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/3w6trzV7/download-(2).png" alt="10 SQN" class="sqn-emblem">
+                <h3 class="sqn-name">10 SQN</h3>
+                <p class="sqn-role">Strategic Transport</p>
+                <p class="sqn-desc">Air-to-Air Refuelling and strategic airlift. Click here to apply for this unit.</p>
+                <span style="margin-top: 15px; color: var(--raf-red); font-weight: bold; font-size: 0.8rem; text-decoration: underline;">APPLY TO 10 SQN →</span>
+            </div>
+
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/595SDH4H/download-(4).png" alt="29 SQN" class="sqn-emblem">
+                <h3 class="sqn-name">29 SQN</h3>
+                <p class="sqn-role">Typhoon OCU</p>
+                <p class="sqn-desc">The Operational Conversion Unit for the Eurofighter Typhoon. Air superiority masters.</p>
+            </div>
+
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/vT5qNXPQ/No-30-Squadron-RAF-emblem.png" alt="30 SQN" class="sqn-emblem">
+                <h3 class="sqn-name">30 SQN</h3>
+                <p class="sqn-role">Tactical Airlift</p>
+                <p class="sqn-desc">Operating the A400M Atlas for tactical drops and austere landing zone missions.</p>
+            </div>
+
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/RFLJpHcp/download-(5).png" alt="617 SQN" class="sqn-emblem">
+                <h3 class="sqn-name">617 SQN</h3>
+                <p class="sqn-role">Stealth Strike</p>
+                <p class="sqn-desc">The 'Dambusters'. Conducting 5th Gen stealth operations with the F-35B Lightning.</p>
+            </div>
+
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/NfwPHqMG/download.png" alt="201 SQN" class="sqn-emblem">
+                <h3 class="sqn-name">201 SQN</h3>
+                <p class="sqn-role">Maritime Recon</p>
+                <p class="sqn-desc">Anti-Submarine Warfare and maritime patrol using the P-8A Poseidon.</p>
+            </div>
+
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/DwRGSFfn/download.jpg" alt="1 FTS" class="sqn-emblem">
+                <h3 class="sqn-name">1 FTS</h3>
+                <p class="sqn-role">Flight Training School</p>
+                <p class="sqn-desc">The entry point for all vRAF aviators. Elementary and basic flight training.</p>
+            </div>
+
+            <div class="sqn-card">
+                <span class="badge">RECRUITING</span>
+                <img src="https://i.postimg.cc/kXcwR2LC/download-(3).png" alt="Red Arrows" class="sqn-emblem">
+                <h3 class="sqn-name">Red Arrows</h3>
+                <p class="sqn-role">Aerobatics Display</p>
+                <p class="sqn-desc">Representing the vRAF through precision formation flying excellence.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="fleet">
+        <div class="fleet-container">
+            <h2 style="text-align:center; font-size: 2.2rem; margin-top: 0;">Our Air Assets</h2>
+            <p style="text-align: center; opacity: 0.8;">Hover over an aircraft for technical specifications.</p>
+            <div class="fleet-grid">
+                <div class="fleet-item">
+                    <img src="https://images.unsplash.com/photo-1517976384346-3136801d605d?auto=format&fit=crop&w=600" alt="Typhoon">
+                    <div class="fleet-overlay">
+                        <span class="sqn-tag">Typhoon FGR4</span>
+                        <ul class="specs-list">
+                            <li><span class="specs-label">Speed:</span> <span>Mach 2.0</span></li>
+                            <li><span class="specs-label">Role:</span> <span>Multi-Role Fighter</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fleet-item">
+                    <img src="https://images.unsplash.com/photo-1526666361175-e3595627ec3d?auto=format&fit=crop&w=600" alt="F-35">
+                    <div class="fleet-overlay">
+                        <span class="sqn-tag">F-35B Lightning II</span>
+                        <ul class="specs-list">
+                            <li><span class="specs-label">Speed:</span> <span>Mach 1.6</span></li>
+                            <li><span class="specs-label">Stealth:</span> <span>5th Gen Active</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fleet-item">
+                    <img src="https://images.unsplash.com/photo-1583344131653-85f67b8a7f72?auto=format&fit=crop&w=600" alt="A400M">
+                    <div class="fleet-overlay">
+                        <span class="sqn-tag">A400M Atlas</span>
+                        <ul class="specs-list">
+                            <li><span class="specs-label">Payload:</span> <span>37,000kg</span></li>
+                            <li><span class="specs-label">Range:</span> <span>4,800nm</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Join our Journey to the Skies</h2>
+        <p>Our main operations and recruitment occur via our Discord server.</p>
+        <a href="https://discord.gg/DT44EPXSeN" class="discord-btn" target="_blank">Join vRAF Discord</a>
+        <p style="margin-top:40px; font-size: 0.8rem; opacity: 0.6;">
+            &copy; 2026 Virtual Royal Air Force | For Simulation Purposes Only. <br>
+            Not affiliated with the Ministry of Defence or the Royal Air Force.
+        </p>
+    </footer>
+
+</body>
+</html>
