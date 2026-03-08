@@ -1,5 +1,35 @@
-<section class="section" id="squadrons">
-        <h2 class="section-title">Operational Units</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vRAF | Squadrons</title>
+    <style>
+        :root { --raf-blue: #002451; --raf-light-blue: #aad8f1; --raf-red: #d11919; --white: #ffffff; --gray: #f4f4f4; --open-green: #15803d; }
+        body { font-family: sans-serif; background: var(--gray); margin: 0; }
+        header { background: var(--raf-blue); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 40px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; }
+        .section { padding: 60px 5%; max-width: 1300px; margin: 0 auto; }
+        .sqn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .sqn-card { background: white; border-radius: 12px; padding: 40px 25px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #ddd; }
+        .sqn-emblem { width: 140px; height: 140px; object-fit: contain; margin-bottom: 20px; }
+        .badge { background: #dcfce7; color: var(--open-green); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+        .sqn-name { font-size: 1.5rem; color: var(--raf-blue); margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="https://i.postimg.cc/RVZdxMpy/v-RAF.png" class="logo-img"></a>
+        <nav><a href="about.html">About</a><a href="squadrons.html">Squadrons</a><a href="command.html">Command</a><a href="fleet.html">Fleet</a><a href="schedule.html">Schedule</a></nav>
+    </header>
+    <section class="section">
+        <h2 style="text-align:center; color:var(--raf-blue); margin-bottom:40px;">Operational Units</h2>
         <div class="sqn-grid">
-            </div>
+            <div class="sqn-card"><span class="badge">RECRUITING</span><img src="https://i.postimg.cc/kgJ1TQWJ/download-(1).png" class="sqn-emblem"><h3 class="sqn-name">IV(AC) SQN</h3><p>Fast Jet Training</p></div>
+            <div class="sqn-card" onclick="window.open('https://forms.gle/ePhb4EyatmpyHjgX7', '_blank')" style="cursor:pointer;"><span class="badge">RECRUITING</span><img src="https://i.postimg.cc/3w6trzV7/download-(2).png" class="sqn-emblem"><h3 class="sqn-name">10 SQN</h3><p>Strategic Transport</p></div>
+            <div class="sqn-card"><span class="badge">RECRUITING</span><img src="https://i.postimg.cc/595SDH4H/download-(4).png" class="sqn-emblem"><h3 class="sqn-name">29 SQN</h3><p>Typhoon OCU</p></div>
+            <div class="sqn-card"><span class="badge">RECRUITING</span><img src="https://i.postimg.cc/vT5qNXPQ/No-30-Squadron-RAF-emblem.png" class="sqn-emblem"><h3 class="sqn-name">30 SQN</h3><p>Tactical Airlift</p></div>
+        </div>
     </section>
+</body>
+</html>
