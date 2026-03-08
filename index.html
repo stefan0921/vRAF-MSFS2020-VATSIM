@@ -89,6 +89,39 @@
         .section-title { text-align: center; color: var(--raf-blue); font-size: 2.2rem; margin-bottom: 50px; text-transform: uppercase; font-weight: 800; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--raf-red); margin: 15px auto 0; }
 
+        /* --- ABOUT SECTION --- */
+        .about-grid { 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; 
+            gap: 40px; 
+            align-items: center; 
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .about-text h3 { color: var(--raf-blue); font-size: 1.8rem; margin-top: 0; }
+        .vatsim-milestone {
+            background: var(--gray);
+            border-left: 5px solid var(--raf-red);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        .milestone-count {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--raf-blue);
+            line-height: 1;
+        }
+        .milestone-label {
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--raf-red);
+            font-size: 0.9rem;
+        }
+
         /* --- SQUADRONS --- */
         .sqn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .sqn-card {
@@ -160,6 +193,11 @@
 
         footer { background: var(--raf-blue); color: white; text-align: center; padding: 60px 20px; border-top: 4px solid var(--raf-red); }
         .discord-btn { background: var(--discord); color: white; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+
+        /* Responsive Fix for About Section */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -170,11 +208,11 @@
         </a>
         <nav>
             <ul>
+                <li><a href="#about">About</a></li>
                 <li><a href="#squadrons">Squadrons</a></li>
                 <li><a href="#command">Command</a></li>
                 <li><a href="#fleet">Fleet</a></li>
                 <li><a href="#schedule">Schedule</a></li>
-                <li><a href="#media">Media</a></li>
                 <li><a href="https://discord.gg/DT44EPXSeN" target="_blank">Join Us</a></li>
             </ul>
         </nav>
@@ -184,6 +222,22 @@
         <h1>PER ARDUA AD ASTRA</h1>
         <p>Excellence in the Skies, Camaraderie on the Ground.</p>
         <a href="https://discord.gg/DT44EPXSeN" class="btn" target="_blank">Enlist Today</a>
+    </section>
+
+    <section class="section" id="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 style="color: var(--raf-red); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 800;">Welcome to vRAF</h2>
+                <h3>Passion for Virtual Skies</h3>
+                <p>Hi there! Welcome to vRAF, a community built for aviation enthusiasts who love connecting, flying, and sharing their passion for virtual skies. Our mission is to create a fun, friendly, and safe environment for pilots of all skill levels.</p>
+                <p>Whether you’re here to improve your skills, make new friends, or just enjoy flying for fun, vRAF has a place for you. Join us today and be part of our skies as we take off to the next level with VATSIM!</p>
+            </div>
+            <div class="vatsim-milestone">
+                <span class="milestone-label">Target Milestone</span>
+                <span class="milestone-count">50+ Members</span>
+                <p style="font-size: 0.95rem; margin-top: 10px;">Currently, vRAF is growing steadily, and we have exciting plans ahead! Once we reach 50+ members, we’re transitioning to <strong>VATSIM</strong>, opening the doors to a more realistic online flying experience, advanced air traffic control, and global connectivity. This milestone marks a big step for our community.</p>
+            </div>
+        </div>
     </section>
 
     <section class="section" id="squadrons">
@@ -231,7 +285,6 @@
         <div class="fleet-container">
             <h2 style="text-align:center; font-size: 2.2rem; margin-top: 0; text-transform: uppercase; letter-spacing: 2px;">The vRAF Air Fleet</h2>
             <div class="fleet-grid">
-                
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/xCFrGsXf/Screenshot-2025-12-25-223746.png" alt="vRAF Typhoon">
                     <div class="fleet-overlay">
