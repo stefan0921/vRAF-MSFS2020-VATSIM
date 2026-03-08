@@ -1,18 +1,74 @@
-<section class="section" id="about">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vRAF | About</title>
+    <style>
+        :root { --raf-blue: #002451; --raf-light-blue: #aad8f1; --raf-red: #d11919; --white: #ffffff; --gray: #f4f4f4; --dark-blue: #001836; --discord: #5865F2; --open-green: #15803d; }
+        body { font-family: sans-serif; margin: 0; background-color: var(--gray); }
+        header { background: var(--raf-blue); color: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid var(--raf-red); }
+        .logo-img { height: 40px; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav li { margin-left: 20px; }
+        nav a { color: var(--white); text-decoration: none; font-weight: 600; }
+        .section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .vatsim-milestone { background: var(--gray); border-left: 5px solid var(--raf-red); padding: 25px; border-radius: 0 8px 8px 0; }
+        .milestone-count { display: block; font-size: 2.5rem; font-weight: 900; color: var(--raf-blue); }
+        .req-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+        .req-card { background: var(--dark-blue); color: white; padding: 30px; border-radius: 12px; border-top: 5px solid; }
+        .req-list { list-style: none; padding: 0; }
+        .req-list li::before { content: '•'; color: var(--raf-light-blue); margin-right: 10px; }
+        footer { background: var(--raf-blue); color: white; text-align: center; padding: 40px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="https://i.postimg.cc/RVZdxMpy/v-RAF.png" class="logo-img"></a>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="squadrons.html">Squadrons</a></li>
+                <li><a href="command.html">Command</a></li>
+                <li><a href="fleet.html">Fleet</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="section">
         <div class="about-grid">
             <div class="about-text">
-                <h2 style="color: var(--raf-red); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 800;">Welcome to vRAF</h2>
+                <h2 style="color: var(--raf-red); text-transform: uppercase; font-size: 0.9rem;">Welcome to vRAF</h2>
                 <h3>Passion for Virtual Skies</h3>
-                <p>Hi there! Welcome to vRAF, a community built for aviation enthusiasts...</p>
-                <p>Whether you’re here to improve your skills...</p>
+                <p>Hi there! Welcome to vRAF, a community built for aviation enthusiasts who love connecting, flying, and sharing their passion for virtual skies.</p>
+                <p>Join us today and be part of our skies as we take off to the next level with VATSIM!</p>
             </div>
             <div class="vatsim-milestone">
-                <span class="milestone-label">Target Milestone</span>
+                <span style="color:var(--raf-red); font-weight:bold;">Target Milestone</span>
                 <span class="milestone-count">50+ Members</span>
-                <p style="font-size: 0.95rem; margin-top: 10px;">Currently, vRAF is growing steadily...</p>
+                <p>Once we reach 50+ members, we’re transitioning to VATSIM!</p>
             </div>
         </div>
-        <h4 style="margin-top:40px; text-transform: uppercase; color: var(--raf-blue); text-align: center;">Choose Your Path</h4>
         <div class="req-container">
+            <div class="req-card" style="border-top-color: var(--raf-light-blue);">
+                <h4>Standard MSFS <span style="font-size: 0.7rem; background: var(--raf-light-blue); color: var(--raf-blue); padding: 2px 8px;">CASUAL</span></h4>
+                <ul class="req-list">
+                    <li>Own MSFS 2020 / 2024</li>
+                    <li>Platform: PC or Xbox Console</li>
+                    <li>Own 1+ aircraft from the vRAF Fleet</li>
+                    <li>Member of the vRAF Discord Server</li>
+                </ul>
             </div>
+            <div class="req-card" style="border-top-color: var(--raf-red);">
+                <h4>VATSIM Ops <span style="font-size: 0.7rem; background: var(--raf-red); color: white; padding: 2px 8px;">ADVANCED</span></h4>
+                <ul class="req-list">
+                    <li>Active VATSIM Account</li>
+                    <li>Passed New Member Orientation</li>
+                    <li>Own 1+ aircraft from the vRAF Fleet</li>
+                </ul>
+            </div>
+        </div>
     </section>
+</body>
+</html>
