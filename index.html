@@ -137,6 +137,55 @@
         .specs-list li { display: flex; justify-content: space-between; margin-bottom: 5px; }
         .specs-label { color: var(--raf-light-blue); font-weight: 600; }
 
+        /* --- NEW GALLERY STYLES --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            height: 250px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(60%);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            width: 100%;
+            background: rgba(209, 25, 25, 0.9); /* Matches --raf-red */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            transition: bottom 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery-item:hover .overlay {
+            bottom: 0;
+        }
+
         /* --- SCHEDULE --- */
         .calendar-wrapper {
             background: #fff;
@@ -146,15 +195,6 @@
             border-top: 6px solid var(--raf-red);
             max-width: 1100px;
             margin: 0 auto;
-        }
-
-        /* --- MEDIA --- */
-        .media-placeholder {
-            max-width: 1000px; margin: 0 auto; height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516939162983-c5f28f5bb9cb?auto=format&fit=crop&w=1200');
-            background-size: cover; background-position: center; border-radius: 15px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
-            border: 2px solid var(--raf-blue);
         }
 
         footer { background: var(--raf-blue); color: white; text-align: center; padding: 60px 20px; border-top: 4px solid var(--raf-red); }
@@ -230,7 +270,6 @@
         <div class="fleet-container">
             <h2 style="text-align:center; font-size: 2.2rem; margin-top: 0; text-transform: uppercase; letter-spacing: 2px;">The vRAF Air Fleet</h2>
             <div class="fleet-grid">
-                
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/xCFrGsXf/Screenshot-2025-12-25-223746.png" alt="vRAF Typhoon">
                     <div class="fleet-overlay">
@@ -244,77 +283,6 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="fleet-item">
-                    <img src="https://i.postimg.cc/Jz64YQD2/F-35.jpg" alt="vRAF F-35">
-                    <div class="fleet-overlay">
-                        <span class="sqn-tag">617 SQN</span>
-                        <span class="ac-name">F-35B Lightning II</span>
-                        <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Stealth STOVL Fighter</span></li>
-                            <li><span class="specs-label">Top Speed:</span> <span>Mach 1.6</span></li>
-                            <li><span class="specs-label">Range:</span> <span>1,035 mi</span></li>
-                            <li><span class="specs-label">Power:</span> <span>1x Pratt & Whitney F135</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="fleet-item">
-                    <img src="https://i.postimg.cc/43j4sN1M/A400M.png" alt="vRAF A400M">
-                    <div class="fleet-overlay">
-                        <span class="sqn-tag">30 SQN</span>
-                        <span class="ac-name">A400M Atlas</span>
-                        <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Strategic/Tactical Airlift</span></li>
-                            <li><span class="specs-label">Top Speed:</span> <span>553 mph</span></li>
-                            <li><span class="specs-label">Range:</span> <span>2,100 mi</span></li>
-                            <li><span class="specs-label">Power:</span> <span>4x Europrop TP400-D6</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="fleet-item">
-                    <img src="https://i.postimg.cc/pdjbQQDZ/P8.jpg" alt="vRAF Poseidon">
-                    <div class="fleet-overlay">
-                        <span class="sqn-tag">201 SQN</span>
-                        <span class="ac-name">Poseidon MRA1</span>
-                        <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Maritime Patrol/ASW</span></li>
-                            <li><span class="specs-label">Top Speed:</span> <span>564 mph</span></li>
-                            <li><span class="specs-label">Range:</span> <span>1,381 mi</span></li>
-                            <li><span class="specs-label">Power:</span> <span>2x CFM56-7B</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="fleet-item">
-                    <img src="https://i.postimg.cc/XvLKzmcb/A330-MRTT.png" alt="vRAF Voyager">
-                    <div class="fleet-overlay">
-                        <span class="sqn-tag">10 SQN</span>
-                        <span class="ac-name">KC2 Voyager</span>
-                        <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Air-to-Air Refueling</span></li>
-                            <li><span class="specs-label">Top Speed:</span> <span>547 mph</span></li>
-                            <li><span class="specs-label">Range:</span> <span>8,000+ mi</span></li>
-                            <li><span class="specs-label">Power:</span> <span>2x Rolls-Royce Trent 700</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="fleet-item">
-                    <img src="https://i.postimg.cc/nzqRr0vp/Hawk-T2-4-sqn.jpg" alt="IV SQN Hawk">
-                    <div class="fleet-overlay">
-                        <span class="sqn-tag">IV(AC) SQN</span>
-                        <span class="ac-name">Hawk T2 Trainer</span>
-                        <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Advanced Jet Trainer</span></li>
-                            <li><span class="specs-label">Top Speed:</span> <span>638 mph</span></li>
-                            <li><span class="specs-label">Range:</span> <span>1,565 mi</span></li>
-                            <li><span class="specs-label">Power:</span> <span>1x RR Adour 951</span></li>
-                        </ul>
-                    </div>
-                </div>
-
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/6pD5f5zF/Red-Arrows.jpg" alt="Red Arrows Hawk T1">
                     <div class="fleet-overlay">
@@ -323,26 +291,10 @@
                         <ul class="specs-list">
                             <li><span class="specs-label">Role:</span> <span>Aerobatic Display</span></li>
                             <li><span class="specs-label">Top Speed:</span> <span>638 mph</span></li>
-                            <li><span class="specs-label">Range:</span> <span>1,565 mi</span></li>
                             <li><span class="specs-label">Power:</span> <span>1x RR Adour 951</span></li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="fleet-item">
-                    <img src="https://i.postimg.cc/DwqPq8Sx/Juno.png" alt="vRAF Jupiter">
-                    <div class="fleet-overlay">
-                        <span class="sqn-tag">1 FTS</span>
-                        <span class="ac-name">Jupiter HT1</span>
-                        <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Rotary Wing Training</span></li>
-                            <li><span class="specs-label">Top Speed:</span> <span>165 mph</span></li>
-                            <li><span class="specs-label">Range:</span> <span>405 mi</span></li>
-                            <li><span class="specs-label">Power:</span> <span>2x Safran Arriel 2E</span></li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -355,11 +307,21 @@
         </div>
     </section>
 
-    <section class="media-section" id="media">
+    <section class="section" id="media">
         <h2 class="section-title">Gallery & Media</h2>
-        <div class="media-placeholder">
-            <h3>Coming Soon</h3>
-            <p>High-altitude captures and cinematic sorties are currently in post-production.</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://i.postimg.cc/8zrhTsR0/Redarrows.jpg" alt="Red Arrows Hawk T1">
+                <div class="overlay">Hawk T1 - Diamond Nine</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.postimg.cc/xCFrGsXf/Screenshot-2025-12-25-223746.png" alt="Typhoon Sortie">
+                <div class="overlay">Typhoon FGR4 Patrol</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.postimg.cc/Jz64YQD2/F-35.jpg" alt="F-35 Stealth">
+                <div class="overlay">617 SQN - Lightning II</div>
+            </div>
         </div>
     </section>
 
