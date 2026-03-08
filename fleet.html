@@ -1,7 +1,46 @@
-<section class="section" id="fleet">
-        <div class="fleet-container">
-            <h2 style="text-align:center; font-size: 2.2rem; margin-top: 0; text-transform: uppercase; letter-spacing: 2px;">The vRAF Air Fleet</h2>
-            <div class="fleet-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vRAF | Fleet</title>
+    <style>
+        :root { --raf-blue: #002451; --raf-red: #d11919; --dark-blue: #001836; --raf-light-blue: #aad8f1; }
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; }
+        header { background: var(--raf-blue); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 40px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; }
+        .fleet-container { background: var(--dark-blue); color: white; padding: 60px 5%; margin: 40px auto; max-width: 1200px; border-radius: 15px; }
+        .fleet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .fleet-item { position: relative; border-radius: 8px; overflow: hidden; height: 350px; background: #000; }
+        .fleet-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.4s; }
+        .fleet-overlay { position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
+        .fleet-item:hover img { opacity: 0.2; }
+        .sqn-tag { background: var(--raf-red); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="https://i.postimg.cc/RVZdxMpy/v-RAF.png" class="logo-img"></a>
+        <nav><a href="about.html">About</a><a href="squadrons.html">Squadrons</a><a href="command.html">Command</a><a href="fleet.html">Fleet</a><a href="schedule.html">Schedule</a></nav>
+    </header>
+    <div class="fleet-container">
+        <h2 style="text-align:center; text-transform:uppercase;">The vRAF Air Fleet</h2>
+        <div class="fleet-grid">
+            <div class="fleet-item">
+                <img src="https://i.postimg.cc/xCFrGsXf/Screenshot-2025-12-25-223746.png">
+                <div class="fleet-overlay">
+                    <span class="sqn-tag">29 SQN</span>
+                    <span style="font-weight:bold; font-size:1.2rem;">Eurofighter Typhoon FGR4</span>
                 </div>
-        </div>
-    </section>
+            </div>
+            <div class="fleet-item">
+                <img src="https://i.postimg.cc/Jz64YQD2/F-35.jpg">
+                <div class="fleet-overlay">
+                    <span class="sqn-tag">617 SQN</span>
+                    <span style="font-weight:bold; font-size:1.2rem;">F-35B Lightning II</span>
+                </div>
+            </div>
+            </div>
+    </div>
+</body>
+</html>
