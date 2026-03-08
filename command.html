@@ -1,5 +1,44 @@
-<section class="command-section" id="command">
-        <h2 class="section-title">Meet the Command</h2>
-        <div class="command-grid">
-            </div>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vRAF | Command</title>
+    <style>
+        :root { --raf-blue: #002451; --raf-red: #d11919; }
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; }
+        header { background: var(--raf-blue); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 40px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; }
+        .command-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 80px 5%; max-width: 1100px; margin: 0 auto; }
+        .command-card { text-align: center; background: white; padding: 30px; border-radius: 15px; }
+        .command-photo { width: 180px; height: 180px; border-radius: 50%; border: 5px solid var(--raf-blue); object-fit: cover; }
+        .rank-tag { color: var(--raf-red); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="https://i.postimg.cc/RVZdxMpy/v-RAF.png" class="logo-img"></a>
+        <nav><a href="about.html">About</a><a href="squadrons.html">Squadrons</a><a href="command.html">Command</a><a href="fleet.html">Fleet</a><a href="schedule.html">Schedule</a></nav>
+    </header>
+    <div class="command-grid">
+        <div class="command-card">
+            <img src="https://i.postimg.cc/J0zrMTFY/air-chief-marshal-rank-braid-for-shoulder-14cm-length-braid-air-force-rank-badge.jpg" class="command-photo">
+            <p class="rank-tag">Air Chief Marshal</p>
+            <h3>Sir Adam Lockey</h3>
+            <p>Chief of the Air Staff (CAS)</p>
+        </div>
+        <div class="command-card">
+            <img src="https://i.postimg.cc/XJDhBQJd/RAF.png" class="command-photo">
+            <p class="rank-tag">Marshal of the RAF</p>
+            <h3>HM Harry Fisher</h3>
+            <p>Head of the vRAF</p>
+        </div>
+        <div class="command-card">
+            <img src="https://i.postimg.cc/900hvD4x/air-marshal-rank-braid-for-shoulder-14cm-length-braid-air-force-rank-badge.jpg" class="command-photo">
+            <p class="rank-tag">Air Marshal</p>
+            <h3>Sir Stefan Kulakowski</h3>
+            <p>Deputy Chief of the Air Staff</p>
+        </div>
+    </div>
+</body>
+</html>
