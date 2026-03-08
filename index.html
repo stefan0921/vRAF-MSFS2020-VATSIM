@@ -122,6 +122,25 @@
             font-size: 0.9rem;
         }
 
+        /* --- NEW REQUIREMENTS CARDS CSS --- */
+        .req-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px; 
+        }
+        .req-card { 
+            background: var(--dark-blue); 
+            color: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            border-top: 5px solid;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .req-list { list-style: none; padding: 0; margin-top: 20px; }
+        .req-list li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: flex-start; }
+        .req-list li::before { content: '•'; color: var(--raf-light-blue); font-weight: bold; margin-right: 12px; font-size: 1.2rem; line-height: 1; }
+
         /* --- SQUADRONS --- */
         .sqn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .sqn-card {
@@ -194,7 +213,6 @@
         footer { background: var(--raf-blue); color: white; text-align: center; padding: 60px 20px; border-top: 4px solid var(--raf-red); }
         .discord-btn { background: var(--discord); color: white; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
 
-        /* Responsive Fix for About Section */
         @media (max-width: 768px) {
             .about-grid { grid-template-columns: 1fr; }
         }
@@ -236,6 +254,37 @@
                 <span class="milestone-label">Target Milestone</span>
                 <span class="milestone-count">50+ Members</span>
                 <p style="font-size: 0.95rem; margin-top: 10px;">Currently, vRAF is growing steadily, and we have exciting plans ahead! Once we reach 50+ members, we’re transitioning to <strong>VATSIM</strong>, opening the doors to a more realistic online flying experience, advanced air traffic control, and global connectivity. This milestone marks a big step for our community.</p>
+            </div>
+        </div>
+
+        <h4 style="margin-top:40px; text-transform: uppercase; color: var(--raf-blue); text-align: center;">Choose Your Path</h4>
+        <div class="req-container">
+            <div class="req-card" style="border-top-color: var(--raf-light-blue);">
+                <h4 style="display: flex; justify-content: space-between; margin: 0;">
+                    Standard MSFS 
+                    <span style="font-size: 0.7rem; background: var(--raf-light-blue); color: var(--raf-blue); padding: 2px 8px; border-radius: 4px;">CASUAL</span>
+                </h4>
+                <ul class="req-list">
+                    <li>Own MSFS 2020 / 2024</li>
+                    <li>Platform: <strong>PC or Xbox Console</strong></li>
+                    <li>Own 1+ aircraft from the vRAF Fleet</li>
+                    <li>Member of the vRAF Discord Server</li>
+                    <li>Participation in community flights</li>
+                </ul>
+            </div>
+
+            <div class="req-card" style="border-top-color: var(--raf-red);">
+                <h4 style="display: flex; justify-content: space-between; margin: 0;">
+                    VATSIM Ops
+                    <span style="font-size: 0.7rem; background: var(--raf-red); color: white; padding: 2px 8px; border-radius: 4px;">ADVANCED</span>
+                </h4>
+                <ul class="req-list">
+                    <li>Own MSFS 2020 / 2024 (PC Recommended)</li>
+                    <li><strong>Active VATSIM Account</strong></li>
+                    <li>Passed VATSIM New Member Orientation</li>
+                    <li>Own 1+ aircraft from the vRAF Fleet</li>
+                    <li>Join official VATSIM operational missions</li>
+                </ul>
             </div>
         </div>
     </section>
