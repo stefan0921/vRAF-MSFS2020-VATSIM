@@ -52,7 +52,7 @@
             background: linear-gradient(rgba(0, 36, 81, 0.85), rgba(0, 36, 81, 0.85)), 
                         url('https://i.postimg.cc/RVZdxMpy/v-RAF.png');
             background-size: contain; 
-            background-repeat: no-no-repeat;
+            background-repeat: no-repeat;
             background-position: center;
             height: 70vh; 
             display: flex; 
@@ -137,7 +137,7 @@
         .specs-list li { display: flex; justify-content: space-between; margin-bottom: 5px; }
         .specs-label { color: var(--raf-light-blue); font-weight: 600; }
 
-        /* --- SCHEDULE & CALENDAR --- */
+        /* --- SCHEDULE --- */
         .calendar-wrapper {
             background: #fff;
             padding: 15px;
@@ -228,80 +228,121 @@
 
     <section class="section" id="fleet">
         <div class="fleet-container">
-            <h2 style="text-align:center; font-size: 2.2rem; margin-top: 0; text-transform: uppercase;">The vRAF Air Fleet</h2>
+            <h2 style="text-align:center; font-size: 2.2rem; margin-top: 0; text-transform: uppercase; letter-spacing: 2px;">The vRAF Air Fleet</h2>
             <div class="fleet-grid">
+                
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/xCFrGsXf/Screenshot-2025-12-25-223746.png" alt="vRAF Typhoon">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">29 SQN</span>
                         <span class="ac-name">Eurofighter Typhoon FGR4</span>
                         <ul class="specs-list">
-                            <li><span class="specs-label">Top Speed:</span> <span>Mach 2.0+</span></li>
                             <li><span class="specs-label">Role:</span> <span>Multi-role Fighter</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>Mach 2.0+</span></li>
+                            <li><span class="specs-label">Range:</span> <span>1,800 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>2x Eurojet EJ200</span></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/Jz64YQD2/F-35.jpg" alt="vRAF F-35">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">617 SQN</span>
                         <span class="ac-name">F-35B Lightning II</span>
                         <ul class="specs-list">
+                            <li><span class="specs-label">Role:</span> <span>Stealth STOVL Fighter</span></li>
                             <li><span class="specs-label">Top Speed:</span> <span>Mach 1.6</span></li>
-                            <li><span class="specs-label">Role:</span> <span>Stealth Strike</span></li>
+                            <li><span class="specs-label">Range:</span> <span>1,035 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>1x Pratt & Whitney F135</span></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/43j4sN1M/A400M.png" alt="vRAF A400M">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">30 SQN</span>
                         <span class="ac-name">A400M Atlas</span>
                         <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Tactical Airlift</span></li>
+                            <li><span class="specs-label">Role:</span> <span>Strategic/Tactical Airlift</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>553 mph</span></li>
+                            <li><span class="specs-label">Range:</span> <span>2,100 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>4x Europrop TP400-D6</span></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/pdjbQQDZ/P8.jpg" alt="vRAF Poseidon">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">201 SQN</span>
                         <span class="ac-name">Poseidon MRA1</span>
                         <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Maritime Patrol</span></li>
+                            <li><span class="specs-label">Role:</span> <span>Maritime Patrol/ASW</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>564 mph</span></li>
+                            <li><span class="specs-label">Range:</span> <span>1,381 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>2x CFM56-7B</span></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/XvLKzmcb/A330-MRTT.png" alt="vRAF Voyager">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">10 SQN</span>
                         <span class="ac-name">KC2 Voyager</span>
                         <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Tanker / Transport</span></li>
+                            <li><span class="specs-label">Role:</span> <span>Air-to-Air Refueling</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>547 mph</span></li>
+                            <li><span class="specs-label">Range:</span> <span>8,000+ mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>2x Rolls-Royce Trent 700</span></li>
                         </ul>
                     </div>
                 </div>
+
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/nzqRr0vp/Hawk-T2-4-sqn.jpg" alt="IV SQN Hawk">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">IV(AC) SQN</span>
                         <span class="ac-name">Hawk T2 Trainer</span>
                         <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Jet Training</span></li>
+                            <li><span class="specs-label">Role:</span> <span>Advanced Jet Trainer</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>638 mph</span></li>
+                            <li><span class="specs-label">Range:</span> <span>1,565 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>1x RR Adour 951</span></li>
                         </ul>
                     </div>
                 </div>
+
+                <div class="fleet-item">
+                    <img src="https://i.postimg.cc/6pD5f5zF/Red-Arrows.jpg" alt="Red Arrows Hawk T1">
+                    <div class="fleet-overlay">
+                        <span class="sqn-tag">RED ARROWS</span>
+                        <span class="ac-name">Hawk T1</span>
+                        <ul class="specs-list">
+                            <li><span class="specs-label">Role:</span> <span>Aerobatic Display</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>638 mph</span></li>
+                            <li><span class="specs-label">Range:</span> <span>1,565 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>1x RR Adour 951</span></li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="fleet-item">
                     <img src="https://i.postimg.cc/DwqPq8Sx/Juno.png" alt="vRAF Jupiter">
                     <div class="fleet-overlay">
                         <span class="sqn-tag">1 FTS</span>
                         <span class="ac-name">Jupiter HT1</span>
                         <ul class="specs-list">
-                            <li><span class="specs-label">Role:</span> <span>Rotary Training</span></li>
+                            <li><span class="specs-label">Role:</span> <span>Rotary Wing Training</span></li>
+                            <li><span class="specs-label">Top Speed:</span> <span>165 mph</span></li>
+                            <li><span class="specs-label">Range:</span> <span>405 mi</span></li>
+                            <li><span class="specs-label">Power:</span> <span>2x Safran Arriel 2E</span></li>
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
